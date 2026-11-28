@@ -229,7 +229,7 @@ Assumes `font-lock-ensure' has run on the surrounding region."
                           (how-many "\n" beg end)))
            (pad-rows (max 0 (- cell-s 1 internal-nl)))
            (pad (when (> pad-rows 0)
-                  (make-string pad-rows ?\n))))
+                  (propertize (make-string pad-rows ?\n) 'cursor t))))
       (unless (equal (overlay-get ov 'after-string) pad)
         (overlay-put ov 'after-string pad)))))
 
